@@ -3,6 +3,7 @@ package org.c02.iot;
 import java.awt.Color;
 import java.io.IOException;
 
+import org.c02.iot.InternetButtonApi.ButtonDirection;
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleException;
 import org.junit.Assert;
@@ -81,4 +82,32 @@ public class InternetButtonTest {
 		internetButtonApi.setLed(11, Color.RED);
 
 	}
+	
+	@Test 
+ 	public void testButtonCoutner() throws ParticleException { 
+		
+		//setup
+		ParticleApiWrapper wrapperInstance= new ParticleApiWrapper() {
+			
+			@Override
+			public int readVariable(String variable) throws IOException {
+				//verify
+				Assert.assertEquals("countButton3", variable);
+				return 0;
+			}
+			
+			@Override
+			public int callMethod(String method, String parameter) throws ParticleException {
+			
+				return 0;
+			}
+		};
+		
+		InternetButtonApi api = new InternetButtonImpl(wrapperInstance);
+		
+		//execute
+		api.getButtonCounter(ButtonDirection.East);
+		
+ 	}
+
 }
