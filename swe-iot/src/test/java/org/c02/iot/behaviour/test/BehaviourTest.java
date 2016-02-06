@@ -38,7 +38,8 @@ public class BehaviourTest {
 			}
 
 			@Override
-			public void playSound() {
+			public void playSound(String string,int zahl) 
+			{
 				Assert.fail();
 			}
 		};

@@ -12,13 +12,15 @@ public class InternetButtonImpl implements InternetButtonApi {
 		wrapper = wrapperInstance;
 	}
 
-	public int getButtonCounter(ButtonDirection button) {
+	public int getButtonCounter(ButtonDirection button) 
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public void setLed(int postition, Color color) {
-		// TODO Auto-generated method stub
+	
+		color// TODO Auto-generated method stub
 	}
 
 	public void allLedsOff() {
