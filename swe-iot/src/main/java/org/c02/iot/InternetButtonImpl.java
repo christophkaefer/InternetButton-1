@@ -3,6 +3,8 @@ package org.c02.iot;
 import java.awt.Color;
 import java.io.IOException;
 
+import javax.print.DocFlavor.STRING;
+
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleException;
 
@@ -48,12 +50,44 @@ public class InternetButtonImpl implements InternetButtonApi {
 				}
 		return 0;
 	}
-
-	public void setLed(int postition, Color color) 
-	{
+	
+	public String pos ;
+	String led;
+	String ledres;
+	public void setLed2(int postition, Color color) 
+	{	
+		
+	  //  posi.tostring( pos ); 
+		
+		if(postition < 10 )
+		{
+			pos = "0" + postition;
+		}
+		else
+		{
+			pos = "" + postition;
+		}
+		
+		led = pos + "000255000";
+		ledres = pos + "000000000";
 		try
 		{
-			wrapper.callMethod("led","03255255000");
+			wrapper.callMethod("led",led);
+			wrapper.callMethod("led",ledres);
+		}
+		catch(ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void setLed(int postition, Color color) 
+	{	
+		
+
+		try
+		{
+			wrapper.callMethod("led","03255000255");
 			wrapper.callMethod("led","06255000000");
 			wrapper.callMethod("led","09000255000");
 			wrapper.callMethod("led","12000000255");
