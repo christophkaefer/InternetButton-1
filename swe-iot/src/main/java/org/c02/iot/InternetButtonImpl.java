@@ -103,7 +103,12 @@ public class InternetButtonImpl implements InternetButtonApi {
 	}
 
 	public void allLedsOff() {
-		// TODO Auto-generated method stub
+		try {
+			wrapper.callMethod("ledsOff",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 
 	}
 
@@ -117,7 +122,12 @@ public class InternetButtonImpl implements InternetButtonApi {
 	}
 
 	public void resetButtonCounters() {
-		// TODO Auto-generated method stub
+		try {
+			wrapper.callMethod("reset",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

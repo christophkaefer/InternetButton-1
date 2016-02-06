@@ -19,7 +19,8 @@ public class Demo {
 	System.out.println("Button South:" +button.getButtonCounter(ButtonDirection.South));
 	System.out.println("Button East:" +button.getButtonCounter(ButtonDirection.East));
 	System.out.println("Button West:" +button.getButtonCounter(ButtonDirection.West));
-	
+	button.allLedsOff();
+	button.resetButtonCounters();
 	}
 
 }
