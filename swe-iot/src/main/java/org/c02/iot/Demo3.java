@@ -3,6 +3,7 @@ package org.c02.iot;
 import org.c02.iot.InternetButtonApi.ButtonDirection;
 import org.c02.iot.cloud.api.ParticleApiWrapper;
 import org.c02.iot.cloud.api.ParticleApiWrapperImpl;
+import org.c02.iot.cloud.api.ParticleException;
 import org.c02.iot.cloud.examples.DemoConstants;
 
 public class Demo3 {
@@ -21,9 +22,15 @@ public class Demo3 {
 //	System.out.println("Button West:" +button.getButtonCounter(ButtonDirection.West));
 //	
 	int x = 0 +button.getButtonCounter(ButtonDirection.North) +button.getButtonCounter(ButtonDirection.South)+button.getButtonCounter(ButtonDirection.East)+button.getButtonCounter(ButtonDirection.West);
-	while(x > 25 )
+	if(x > 25 )
 	{
-		x=x-25;		
+		x=0;
+		try {
+			api.callMethod("reset",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	button.ledRed(x);
