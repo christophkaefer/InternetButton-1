@@ -19,9 +19,23 @@ public class InternetButtonImpl implements InternetButtonApi {
 		return 0;
 	}
 
-	public void setLed(int postition, Color color) {
-	
-		// TODO Auto-generated method stub
+	public void setLed(int postition, Color color) 
+	{
+		try
+		{
+			wrapper.callMethod("led","03255255000");
+			wrapper.callMethod("led","06255000000");
+			wrapper.callMethod("led","09000255000");
+			wrapper.callMethod("led","12000000255");
+			wrapper.callMethod("led","03000000000");
+			wrapper.callMethod("led","06000000000");
+			wrapper.callMethod("led","09000000000");
+			wrapper.callMethod("led","12000000000");
+		}
+		catch(ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void allLedsOff() {

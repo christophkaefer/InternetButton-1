@@ -30,4 +30,9 @@ public void setup() {
 		internetButtonApi.playSound(); 
 		Mockito.verify(particleWrapperApi).callMethod("play", null); 
  	} 
+ 	@Test 
+ 	public void testSetLed() throws ParticleException { 
+		internetButtonApi.setLed(0, null); 
+		Mockito.verify(particleWrapperApi).callMethod("led", "03255255000"); 
+ 	} 
  } 

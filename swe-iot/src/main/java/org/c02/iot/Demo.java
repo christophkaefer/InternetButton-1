@@ -13,7 +13,7 @@ public class Demo {
 		// TODO Auto-generated method stub
 	InternetButtonImpl button=new InternetButtonImpl(api);
 	button.playSound();	
-
+	button.setLed(0, null);	
 	}
 
 }
