@@ -21,7 +21,7 @@ public class InternetButtonImpl implements InternetButtonApi {
 
 	public void setLed(int postition, Color color) {
 	
-		color// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 	}
 
 	public void allLedsOff() {
